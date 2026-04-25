@@ -142,13 +142,13 @@ body {
 .landing-body {
   position: relative; z-index: 1;
   width: 100%; max-width: 480px;
-  display: flex; flex-direction: column; align-items: flex-start;
+  display: flex; flex-direction: column; align-items: center;
   padding: 0 22px 80px; margin-top: -20px;
   background: radial-gradient(ellipse 100% 50% at 50% 0%, rgba(37,99,235,0.12) 0%, transparent 65%), var(--n900);
 }
 
 .brand-tag {
-  display: inline-flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 8px;
   background: rgba(37,99,235,0.12); border: 1px solid rgba(96,165,250,0.22);
   border-radius: 100px; padding: 6px 16px;
   animation: fsu 0.5s ease 0.1s both;
@@ -161,7 +161,7 @@ body {
 .brand-tag span { font-size: 11px; font-weight: 600; color: var(--b200); letter-spacing: 0.3px; }
 
 /* 핵심 변경: text-align left */
-.l-title { margin-top: 20px; text-align: left; width: 100%; animation: fsu 0.5s ease 0.2s both; }
+.l-title { margin-top: 20px; text-align: center; width: 100%; animation: fsu 0.5s ease 0.2s both; }
 .l-title h1 {
   font-family: 'Black Han Sans', sans-serif;
   font-size: clamp(44px, 12vw, 64px); font-weight: 900;
