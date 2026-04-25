@@ -85,14 +85,17 @@ const SK2 = "kec_subs_v3";
 async function getCounts() {
   try { const r = await window.storage.get(SK); return r ? JSON.parse(r.value) : {}; } catch { return {}; }
 }
+async function getCounts() {
+  try { const v = localStorage.getItem(SK); return v ? JSON.parse(v) : {}; } catch { return {}; }
+}
 async function saveCounts(o) {
-  try { await window.storage.set(SK, JSON.stringify(o)); } catch {}
+  try { localStorage.setItem(SK, JSON.stringify(o)); } catch {}
 }
 async function addSub(e) {
   try {
-    const r = await window.storage.get(SK2);
-    const l = r ? JSON.parse(r.value) : [];
-    l.push(e); await window.storage.set(SK2, JSON.stringify(l));
+    const v = localStorage.getItem(SK2);
+    const l = v ? JSON.parse(v) : [];
+    l.push(e); localStorage.setItem(SK2, JSON.stringify(l));
   } catch {}
 }
 
