@@ -210,7 +210,7 @@ body {
   margin-top: 2px; flex-shrink: 0;
 }
 /* 개요 값 텍스트 가독성 강화 */
-.ov-val { font-size: 13.5px; color: var(--g100); line-height: 1.7; }
+.ov-val { font-size: 13.5px; color: var(--g100); line-height: 1.7; text-align: left; }
 
 .cat-grid {
   margin-top: 20px; width: 100%;
