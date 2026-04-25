@@ -82,9 +82,7 @@ const CATEGORIES = [
 const SK = "kec_counts_v3";
 const SK2 = "kec_subs_v3";
 
-async function getCounts() {
-  try { const r = await window.storage.get(SK); return r ? JSON.parse(r.value) : {}; } catch { return {}; }
-}
+
 async function getCounts() {
   try { const v = localStorage.getItem(SK); return v ? JSON.parse(v) : {}; } catch { return {}; }
 }
