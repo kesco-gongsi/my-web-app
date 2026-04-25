@@ -122,6 +122,7 @@ body {
   font-family: 'Noto Sans KR', -apple-system, sans-serif;
   background: var(--n900); color: var(--w);
   min-height: 100vh; -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
 }
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
