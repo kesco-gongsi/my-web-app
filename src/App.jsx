@@ -84,7 +84,19 @@ const SK2 = "kec_subs_v3";
 
 
 async function getCounts() {
-  try { const v = localStorage.getItem(SK); return v ? JSON.parse(v) : {}; } catch { return {}; }
+  let local = {};
+  try { const v = localStorage.getItem(SK); local = v ? JSON.parse(v) : {}; } catch {}
+  try {
+    const r = await fetch(SHEET_URL + "?action=counts");
+    if (r.ok) {
+      const server = await r.json();
+      const merged = { ...local };
+      for (const [k, v] of Object.entries(server)) merged[k] = Math.max(merged[k] || 0, v);
+      try { localStorage.setItem(SK, JSON.stringify(merged)); } catch {}
+      return merged;
+    }
+  } catch {}
+  return local;
 }
 async function saveCounts(o) {
   try { localStorage.setItem(SK, JSON.stringify(o)); } catch {}
@@ -634,7 +646,7 @@ function Detail({ cat, item, onBack, onDone }) {
     setSubmitting(true);
     const entry = {
       ts: new Date().toLocaleString('ko-KR'),
-      cat: cat.label, item: item.text,
+      cat: cat.label, item: item.text, itemId: item.id,
       name, phone, loc, desc,
     };
     try {
